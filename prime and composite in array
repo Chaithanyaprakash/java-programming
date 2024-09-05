@@ -16,6 +16,10 @@ public class PrimeComposite {
         {
             if(a[i]%2==0 || a[i]%3==0 || a[i]%5==0)
             {
+                if(a[i]==2 || a[i]==3 || a[i]==5)
+                {
+                   System.out.println("prime numbers  "+a[i]);
+                }
                 System.out.println("composite number  "+a[i]);
             }
             else
