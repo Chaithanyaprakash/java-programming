@@ -1,0 +1,26 @@
+import java.util.Scanner;
+class SumThread implements Runnable {
+    private int n;
+    private int sum;
+    public SumThread(int n) {
+        this.n = n;
+        this.sum = 0;  
+    }
+    @Override
+    public void run() {
+        for (int i = 1; i <= n; i++) {
+            sum += i;
+        }
+        System.out.println("The sum of the first " + n + " numbers is: " + sum);
+    }
+}
+public class SumUsingThreads {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("enter number : ");
+        int n=scan.nextInt();
+        SumThread sumRunnable = new SumThread(n);
+        Thread thread = new Thread(sumRunnable);
+        thread.start();
+    }
+}
