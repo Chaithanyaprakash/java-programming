@@ -3,11 +3,20 @@ public class MergeArrays {
     public static void main(String[] args) {
         int[] array1 = {1, 2, 3};
         int[] array2 = {4, 5, 6};
+        int[] array3=new int[6];
         System.out.print("merged array is ");
         for(int i=0;i<3;i++)
         {
-            System.out.print(array1[i]+",");
-            System.out.print(array2[i]+",");
+            array3[i]=array1[i];
+        }
+        for(int i=0;i<3;i++)
+        {
+            array3[3+i]=array2[i];
+        }
+        Arrays.sort(array3);
+        for(int i=0;i<6;i++)
+        {
+            System.out.print(array3[i]+" ");
         }
     }
 }
