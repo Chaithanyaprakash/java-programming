@@ -1,0 +1,25 @@
+import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Set;
+public class SimplePermutations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Given Number: ");
+        String number = scanner.nextLine();
+        Set<String> permutations = new HashSet<>();
+        int n = number.length();
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i != j) {
+                    for (int k = 0; k < n; k++) {
+                        if (k != i && k != j) {
+                            String perm = "" + number.charAt(i) + number.charAt(j) + number.charAt(k);
+                            permutations.add(perm);  
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println("Permutations are: "+permutations);
+    }
+}
