@@ -1,0 +1,48 @@
+import java.util.*;
+class Node {
+    int data;
+    Node next;
+    public Node(int data) {
+        this.data=data;
+    }
+}
+class Link{
+    Node root;
+    public void insert(int data) {
+        root = insertrec(root,data);
+    }
+    public Node insertrec(Node root, int data) {
+        if(root==null) {
+            root = new Node(data);
+        }
+        else {
+            root.next = insertrec(root.next,data);
+        }
+        return root;
+    }
+    void gain() {
+        res(root);
+    }
+    void res(Node root) {
+        if(root != null) {
+            System.out.print(root.data+" -> ");
+            if(root.next != null) {
+                res(root.next);
+            }
+            else {
+                System.out.println("X");
+            }
+        }
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Link lnk= new Link();
+        lnk.insert(5);
+        lnk.insert(7);
+        lnk.insert(8);
+        lnk.insert(2);
+        lnk.insert(3);
+        lnk.gain();
+    }
+}
